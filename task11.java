@@ -95,51 +95,26 @@ import java.util.Scanner;
 }
 public class task11 {
 	static void Add(Single<Mnog> o1, Single<Mnog> o2, Single<Mnog> o3) {
-		int a1 = 0;
-		int a2 = 0;
-		int n1 = 0;
-		int n2 = 0;
-		for (int i = 0; i < o1.size(); i++) {
-			a1 = o1.get(i).getA();
-			n1 = o1.get(i).getN();
-			for (int j = 0; j < o2.size(); j++) {
-				a2 = o2.get(j).getA();
-				n2 = o2.get(j).getN();
-				if (n1 == n2) {
-					o3.add(new Mnog((a1 + a2), n1));
-					break;
-				}
-				if (n1 > n2) {
-					boolean f = true;
-					int n4 = 0;
-					for (int z = 0; z < o3.size() && o3.size() != 0; z++) {
-						n4 = o3.get(z).getN();
-						if (n4 == n1) {
-							f = false;
-							break;
-						}
-					}
-					if (f == true) {
-						o3.add(new Mnog(a1, n1));
-					}
-				}
-				if (n1 < n2) {
-
-					boolean f = true;
-					int n4 = 0;
-					for (int z = 0; z < o3.size() && o3.size() != 0; z++) {
-						n4 = o3.get(z).getN();
-						if (n2 == n4) {
-							f = false;
-							break;
-						}
-					}
-					if (f == true) {
-						o3.add(new Mnog(a2, n2));
-					}
-
-				}
+		int a1;
+		int a2 ;
+		for (int i = 0, j = 0; i < o1.size() && j < o2.size();) {
+			if (o1.get(i).getN() > o2.get(j).getN()) {
+				o3.add(new Mnog(o1.get(i).getA(), o1.get(i).getN()));
+				i++;
+				continue;
 			}
+			if (o1.get(i).getN() == o2.get(j).getN()) {
+				o3.add(new Mnog(o1.get(i).getA()+o2.get(j).getA(), o1.get(i).getN()));
+				i++;
+				j++;
+				continue;
+			}
+			if (o1.get(i).getN() < o2.get(j).getN()) {
+				o3.add(new Mnog(o2.get(j).getA(), o2.get(j).getN()));
+				j++;
+				continue;
+			}
+			
 		}
 
 		for (int i = 0; i < o3.size(); i++) {
@@ -153,16 +128,16 @@ public class task11 {
 		Single<Mnog> num1 = new Single<Mnog>();
 		Single<Mnog> num2 = new Single<Mnog>();
 		Single<Mnog> sum = new Single<Mnog>();
-		System.out.println("Введите 1 многочлен");
+		System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ 1 Г¬Г­Г®ГЈГ®Г·Г«ГҐГ­");
 		do {
-			System.out.println("Введите ai и cтепень x .");
+			System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ ai ГЁ cГІГҐГЇГҐГ­Гј x .");
 			a = scn.nextInt();
 			n = scn.nextInt();
 			num1.add(new Mnog(a, n));
 		} while (n != 0);
-		System.out.println("Введите 2 многочлен");
+		System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ 2 Г¬Г­Г®ГЈГ®Г·Г«ГҐГ­");
 		do {
-			System.out.println("Введите ai и cтепень x .");
+			System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ ai ГЁ cГІГҐГЇГҐГ­Гј x .");
 			a = scn.nextInt();
 			n = scn.nextInt();
 			num2.add(new Mnog(a, n));
