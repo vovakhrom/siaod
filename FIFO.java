@@ -47,8 +47,8 @@ public class FIFO<E> {
 	private El firstMain; // ссылка на первый элемент главной очереди(head)
 	private int mainSize;// размер главной очереди
 	private int nQueue; // количество подочередей
-	private El[] lasts;// массив ссылок последних элементов подочередей(tails)
-	private El[] firsts;// массив ссылок последних элементов подочередей(tails)
+	private El[] lasts;// массив ссылок последних элементов подочередей
+	private El[] firsts;// массив ссылок первых элементов подочередей
 	private int[] lastsSize;// размеры подочередей
 	private int order;// из какой очереди мы берем
 	private int nFromMain;// сколько осталось взять из главной подочереди
