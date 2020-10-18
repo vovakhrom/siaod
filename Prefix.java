@@ -1,9 +1,11 @@
+package siaod1lab;
+
 import java.util.*;
 
 public class Prefix {
 
 	// Функция для проверки , является ли символ операндом
-	static boolean isOperator(char c) {
+	static boolean isOperand(char c) {
 		return (!(c >= 'a' && c <= 'z') && !(c >= '0' && c <= '9') && !(c >= 'A' && c <= 'Z'));
 	}
 
@@ -61,7 +63,7 @@ public class Prefix {
 			}
 
 			// если текущий символ операнд заносим в стек операндов
-			else if (!isOperator(infix.charAt(i))) {
+			else if (!isOperand(infix.charAt(i))) {
 				operands.push(infix.charAt(i) + "");
 			}
 			// если текущий символ оператор
