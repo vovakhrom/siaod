@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Prefix {
 
-	// Функция для проверки , является ли символ операндом
-	static boolean isOperand(char c) {
+	// Функция для проверки , является ли символ оператором
+	static boolean isOperator(char c) {
 		return (!(c >= 'a' && c <= 'z') && !(c >= '0' && c <= '9') && !(c >= 'A' && c <= 'Z'));
 	}
 
@@ -63,7 +63,7 @@ public class Prefix {
 			}
 
 			// если текущий символ операнд заносим в стек операндов
-			else if (!isOperand(infix.charAt(i))) {
+			else if (!isOperator(infix.charAt(i))) {
 				operands.push(infix.charAt(i) + "");
 			}
 			// если текущий символ оператор
